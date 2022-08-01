@@ -55,7 +55,7 @@ ROOT_URLCONF = 'primer_proyecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [r"D:\Estudios\CoderHouse - Python\Trabajos\Projects\MTV-Django\primer_proyecto\primer_proyecto\templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

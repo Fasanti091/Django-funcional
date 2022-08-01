@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from proyecto.models import Curso
+from django.template import Template, Context, loader
 
 # Create your views here.
 
@@ -15,4 +16,8 @@ def lista_cursos(request):
     for curso in cursos:
         lista_cursos_nombre.append(curso.nombre)
 
-    return HttpResponse(lista_cursos_nombre)
+    plantilla = loader.get_template("index.html")
+
+    documento = plantilla.render({"cursos": lista_cursos_nombre})
+
+    return HttpResponse(documento)
