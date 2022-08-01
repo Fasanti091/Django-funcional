@@ -1,3 +1,4 @@
+from tkinter.font import families
 from django.shortcuts import render
 from django.http import HttpResponse
 from proyecto.models import Curso
@@ -11,13 +12,10 @@ def lista_cursos(request):
 
     cursos = Curso.objects.all()
 
-    lista_cursos_nombre = []
-
-    for curso in cursos:
-        lista_cursos_nombre.append(curso.nombre)
+    familiares = {'curso':cursos}
 
     plantilla = loader.get_template("index.html")
 
-    documento = plantilla.render({"cursos": lista_cursos_nombre})
+    documento = plantilla.render(familiares)
 
     return HttpResponse(documento)
